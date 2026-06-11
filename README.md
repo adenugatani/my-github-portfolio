@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-it uses the github api to fetch the total list of repositories, with client side pagination to render 13 repositories per page.
+It uses the github api to fetch the total list of repositories, with client side pagination to render 13 repositories per page.
 A single repositorty can also be viewed by clicking on each of the repository card.
 Also, it has an errorboundary to catch errors in the children components and a 404 page.
 It was hosted using vercel.
