@@ -3,25 +3,35 @@ import { Link } from "react-router-dom";
 
 export const RepositoryCard = (props) => {
   const { repo } = props;
+
+  const formatDate = (dateValue) => {
+    if (!dateValue) return "N/A";
+    return new Date(dateValue).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  };
+
   return (
     <Link to={`repo/${repo.name}`}>
-      <div className="bg-white border border-primary  rounded-lg border-solid p-6 my-8 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110">
-        <div className="flex items-center">
-          <h2 className="text-xl font-semibold text-tertiary hover:underline hover:decoration-tertiary hover:decoration-solid">
+      <div className="my-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:border-sky-200 hover:shadow-md">
+        <div className="flex flex-wrap items-center gap-2">
+          <h2 className="text-xl font-semibold text-tertiary hover:underline hover:decoration-tertiary">
             {repo.name}
           </h2>
-          <button className="text-secondary border border-primary text-xs rounded-2xl p-1 ml-2">
+          <span className="rounded-full border border-slate-200 px-2 py-1 text-xs font-medium capitalize text-secondary">
             {repo.visibility}
-          </button>
+          </span>
         </div>
-        <p className="text-secondary text-base mt-2">
+        <p className="mt-3 text-base text-secondary">
           {"Description"}: {repo.description}
         </p>
-        <p className="text-secondary text-sm mt-2">
+        <p className="mt-2 text-sm text-secondary">
           {"Language Used"}: {repo.language}
         </p>
-        <p className="text-secondary text-sm mt-2">
-          {"Updated on"}: {repo.updated_at}
+        <p className="mt-2 text-sm text-secondary">
+          {"Updated on"}: {formatDate(repo.updated_at)}
         </p>
       </div>
     </Link>

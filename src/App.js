@@ -11,9 +11,9 @@ import { Footer } from './components/footer/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App min-h-screen bg-slate-50 text-slate-900">
       {/* render header component here */}
-      <Header title="Frontend Second Semester Examination Project"/>
+      <Header title="GitHub Portfolio Explorer"/>
       <main>
         <Routes>
           <Route path ="/" element={ <Repositories />}></Route>
